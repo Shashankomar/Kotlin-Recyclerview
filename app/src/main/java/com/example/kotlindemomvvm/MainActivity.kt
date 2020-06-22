@@ -4,37 +4,42 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
+    var dataList = ArrayList<MainDataModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        setRecyclerView(getData())
+        getData()
     }
 
-    private fun setRecyclerView(data: ArrayList<String>) {
+    private fun getData() {
+        val call: Call<List<MainDataModel>> = ApiClient.getClient.getPhotos()
+        call.enqueue(object : Callback<List<MainDataModel>> {
+            override fun onFailure(call: Call<List<MainDataModel>>, t: Throwable) {
+            }
+
+            override fun onResponse(
+                call: Call<List<MainDataModel>>,
+                response: Response<List<MainDataModel>>
+            ) {
+                if (response.isSuccessful) {
+                    dataList.addAll(response.body()!!)
+                    setRecyclerView(dataList)
+                }
+            }
+        })
+    }
+
+    private fun setRecyclerView(data: List<MainDataModel>?) {
         rv_main.adapter = MainDataAdapter(this, data)
         rv_main.layoutManager = LinearLayoutManager(
             this, LinearLayoutManager.VERTICAL, false
         )
     }
 
-    private fun getData(): ArrayList<String> {
-        return ArrayList<String>().apply {
-            add("item 1")
-            add("item 2")
-            add("item 3")
-            add("item 4")
-            add("item 5")
-            add("item 6")
-            add("item 7")
-            add("item 8")
-            add("item 9")
-            add("item 10")
-            add("item 11")
-            add("item 12")
-        }
-    }
 }
