@@ -1,4 +1,4 @@
-package com.example.kotlindemomvvm
+package com.example.kotlinquoteslist
 
 import retrofit2.Call
 import retrofit2.http.GET

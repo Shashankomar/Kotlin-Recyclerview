@@ -1,4 +1,4 @@
-package com.example.kotlindemomvvm
+package com.example.kotlinquoteslist
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MainDataAdapter(private val context: Context, private val data: List<MainDataModel>?) :
+class MainDataAdapter(private val context: Context, private val data: List<MainDataModel>) :
     RecyclerView.Adapter<MainDataAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -17,11 +17,12 @@ class MainDataAdapter(private val context: Context, private val data: List<MainD
     }
 
     override fun getItemCount(): Int {
-        return data!!.size
+        return data.size
+
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.mTvItem.text = data!!.get(index = position).title
+        holder.mTvItem.text = data.get(index = position).title
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

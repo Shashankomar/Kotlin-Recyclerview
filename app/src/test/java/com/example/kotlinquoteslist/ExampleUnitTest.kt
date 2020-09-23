@@ -1,4 +1,4 @@
-package com.example.kotlindemomvvm
+package com.example.kotlinquoteslist
 
 import org.junit.Test
 

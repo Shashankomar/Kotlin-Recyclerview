@@ -1,4 +1,4 @@
-package com.example.kotlindemomvvm
+package com.example.kotlinquoteslist
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

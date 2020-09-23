@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name='KotlinDemoMVVM'
+rootProject.name='kotlin_quotes_list'

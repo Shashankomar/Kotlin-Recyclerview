@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">KotlinDemoMVVM</string>
+    <string name="app_name">Kotlin Quotes List</string>
+    <string name="error_msg_null">Error message is null</string>
+    <string name="quotes_test_text">quotes testing text</string>
 </resources>

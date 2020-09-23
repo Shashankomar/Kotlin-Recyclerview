@@ -1,4 +1,4 @@
-package com.example.kotlindemomvvm
+package com.example.kotlinquoteslist
 
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
